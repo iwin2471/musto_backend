@@ -7,16 +7,16 @@ var UsersSchema = mongoose.Schema({
   passwd: {type: String},
   name: {type: String},
   token: {type: String},
-  html: {type: String},
 });
 
 var ScheduleSchema = mongoose.Schema({
   owner: {type: String},
   Date: {type: String},
-  shcedules:[{
+  schedules:[{
     title: {type: String},
     content: {type: String},
     start_time: {type: String},
+    end_time: {type: String},
   }]
 });
 
