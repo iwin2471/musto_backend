@@ -7,21 +7,27 @@ var UsersSchema = mongoose.Schema({
   passwd: {type: String},
   name: {type: String},
   token: {type: String},
+  setting: {type: String},
+  profile: {type: String},
+  profile_img: {type: String},
+  facebook_id: {type: String},
+  github_id: {type: String},
+  twitter_id: {type: String},
+  google_id: {type: String},
+  chats:[String]
 });
 
-var ScheduleSchema = mongoose.Schema({
-  owner: {type: String},
-  Date: {type: String},
-  schedules:[{
-    title: {type: String},
-    content: {type: String},
-    start_time: {type: String},
-    end_time: {type: String},
-  }]
+var ChatsSchema = mongoose.Schema({
+   chat_peoples: [String], 
+   room_token: {type: String},
+   chats:[{
+     talker: {type: String},
+     talk: {type: String}
+   }]
 });
+
 
 Users = mongoose.model("users", UsersSchema);
-Schedules = mongoose.model("schedules", ScheduleSchema);
+chats = mongoose.model("chats", ChatsSchema);
 exports.Users = Users;
-exports.Schedules = Schedules;
 exports.db = db;
