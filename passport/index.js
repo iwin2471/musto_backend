@@ -24,8 +24,8 @@ module.exports = (Users) =>{
   }))
 
   .use(new FacebookTokenStrategy({
-    clientID: "1898081023756082",
-    clientSecret: "fc44b2a48aaaf1e0848e08854b7bbe68",
+    clientID: "420689554941701",
+    clientSecret: "80a11ca8ffa2eb20ce58f9412751d6b8",
     profileFields: ['id', 'displayName', 'photos'],
   }, (accessToken, refreshToken, profile, done)=>{
     done(null, profile);

@@ -1,11 +1,15 @@
-module.exports = index;
+module.exports = (router, musto) =>{
+  router.get('/', function(req, res){
+     res.send("musto service ");
+  })
 
-function index(app) {
-  app.get('/', function(req, res){
-     res.render('index');
-  });
+  .post('/schedule', function(req, res){
+    
+  })
 
-  app.get('/editor', function(req, res){
-     res.render('editor');
-  });
+  .get('/schedule/:cheid', (req, res)=>{
+   
+  })
+
+  return router;
 }

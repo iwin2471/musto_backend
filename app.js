@@ -20,10 +20,8 @@ var db = require('./mongo');
 var passport = require('./passport')(db.Users);
 var func = require('./func');
 
-var port = process.env.PORT || 8081;
 
 //set engin
-app.set('port', port);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
@@ -41,16 +39,13 @@ app.use(passport.session());
 //router setting
 var index = require('./routes/index')(router);
 var auth = require('./routes/auth')(router, rnd_string, db.Users, passport, func);
-var version = require('./routes/version')(router);
-var user = require('./routes/user')(router, db.Users, passport);
+var musto = require('./routes/musto')(router, db.Schedules);
 var setting = require('./routes/setting')(router, fs, db.Users, async);
 
 //router setting
 app.use('/', index);
 app.use('/auth', auth);
-app.use('/version', version);
-app.use('/user', user);
-app.use('/setting', setting);
+app.use('/musto', musto);
 
 
 //create server

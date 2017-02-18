@@ -1,11 +1,7 @@
 module.exports = (router) =>{
   router.get('/', function(req, res){
-     res.render('index');
+     res.send('hello world');
   })
-
-  .get('/editor', function(req, res){
-     res.render('editor');
-  });
 
   return router;
 }

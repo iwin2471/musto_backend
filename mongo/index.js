@@ -1,33 +1,30 @@
 var mongoose = require('mongoose');
-var db = mongoose.connect('mongodb://localhost/radionoise');
+var db = mongoose.connect('mongodb://localhost/musto');
 mongoose.Promise = global.Promise;
 
 var UsersSchema = mongoose.Schema({
   id: {type: String},
-  passwd: {type: String},
-  name: {type: String},
-  token: {type: String},
-  setting: {type: String},
-  profile: {type: String},
-  profile_img: {type: String},
   facebook_id: {type: String},
   github_id: {type: String},
   twitter_id: {type: String},
-  google_id: {type: String},
-  chats:[String]
+  passwd: {type: String},
+  name: {type: String},
+  token: {type: String},
 });
 
-var ChatsSchema = mongoose.Schema({
-   chat_peoples: [String], 
-   room_token: {type: String},
-   chats:[{
-     talker: {type: String},
-     talk: {type: String}
-   }]
+var ScheduleSchema = mongoose.Schema({
+  owner: {type: String},
+  Date: {type: String},
+  shcedules:[{
+    title: {type: String},
+    content: {type: String},
+    start_time: {type: String},
+    end_time: {type: String}
+  }]
 });
-
 
 Users = mongoose.model("users", UsersSchema);
-chats = mongoose.model("chats", ChatsSchema);
+Schedules = mongoose.model("schedules", ScheduleSchema);
 exports.Users = Users;
+exports.Schedules = Schedules;
 exports.db = db;
