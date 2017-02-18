@@ -3,13 +3,22 @@ module.exports = (router, musto) =>{
      res.send("musto service ");
   })
 
-  .post('/schedule', function(req, res){
+  .post('/schedules', function(req, res){
     
   })
 
   .get('/schedule/:cheid', (req, res)=>{
    
   })
+
+  .put('/schedule/:scheid', (req,res)=>{
+    
+  })
+
+  .delete('/schedule/:scheid' (req, res)=>{
+    
+  })
+ 
 
   return router;
 }

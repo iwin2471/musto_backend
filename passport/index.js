@@ -39,15 +39,5 @@ module.exports = (Users) =>{
     done(null, profile);
   }))
 
-passport.use(new TwitterStrategy({
-    consumerKey: "yLLVmWwfmfTZdBn0gFUzKGriK",
-    consumerSecret: "AZ5KK7DOJwErRLelub2YOu09V0ETLHcxXHIKuBT3XCmRku9RhE",
-    callbackURL: "http://radionoise.iwin247.kr/auth/twitter/callback"
-  },
-  function(token, tokenSecret, profile, cb) {
-    console.log(token);
-  }
-));
-
   return passport;
 }
