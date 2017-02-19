@@ -1,13 +1,15 @@
 var mongoose = require('mongoose');
-var db = mongoose.connect('mongodb://localhost/radionoise');
+var db = mongoose.connect('mongodb://localhost/musto');
 mongoose.Promise = global.Promise;
 
 var UsersSchema = mongoose.Schema({
   id: {type: String},
+  facebook_id: {type: String},
+  github_id: {type: String},
+  twitter_id: {type: String},
   passwd: {type: String},
   name: {type: String},
   token: {type: String},
-  html: {type: String},
 });
 
 var ScheduleSchema = mongoose.Schema({
@@ -17,6 +19,7 @@ var ScheduleSchema = mongoose.Schema({
     title: {type: String},
     content: {type: String},
     start_time: {type: String},
+    end_time: {type: String}
   }]
 });
 
