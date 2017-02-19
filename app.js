@@ -9,8 +9,8 @@ var bodyParser = require('body-parser');
 var vhost = require('vhost');
 var randomstring = require('randomstring');
 var app = express();
-var debug = require('debug')('dicon:server');
-var rnd_string = require("randomstring");
+var debug = require('debug')('schedule:server');
+var rndString = require("randomstring");
 var fs = require('fs');
 var router = express.Router();
 var async = require('async');
@@ -38,14 +38,14 @@ app.use(passport.session());
 
 //router setting
 var index = require('./routes/index')(router);
-var auth = require('./routes/auth')(router, rnd_string, db.Users, passport, func);
-var musto = require('./routes/musto')(router, db.Schedules);
+var auth = require('./routes/auth')(router, rndString, db.Users, passport, func);
+var schedule = require('./routes/schedule')(router, db.Schedules, db.Users);
 var setting = require('./routes/setting')(router, fs, db.Users, async);
 
 //router setting
 app.use('/', index);
 app.use('/auth', auth);
-app.use('/musto', musto);
+app.use('/schedule', schedule);
 
 
 //create server
